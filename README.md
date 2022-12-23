@@ -86,6 +86,8 @@ Attributes XML   | Kotlin Code   | Function      |
 
 ### Switch 
 
+![Demo of my project](images/setting_switch.mp4)
+
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
 | `title` |` this.title ` | sets title of switch view |
