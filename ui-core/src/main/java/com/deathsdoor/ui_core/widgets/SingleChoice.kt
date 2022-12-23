@@ -60,7 +60,6 @@ class SingleChoice(context: Context, attrs: AttributeSet) : LinearLayout(context
                     val binding = smth.first
                     titleView = binding.title
                     descriptionView = binding.description
-
                 }
             }
     }
