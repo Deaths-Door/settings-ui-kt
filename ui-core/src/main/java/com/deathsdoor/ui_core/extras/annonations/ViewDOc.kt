@@ -1,4 +1,4 @@
-package com.deathsdoor.ui_core.annonations
+package com.deathsdoor.ui_core.extras.annonations
 
 /**
  * An annotation that can be used to provide documentation for custom views.

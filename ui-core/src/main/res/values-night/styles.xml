@@ -1,7 +1,5 @@
 <resources>
-
-    <style name="Widget.Theme.MyApplication.MyView" parent="">
-        <item name="android:background">@color/gray_600</item>
-        <item name="exampleColor">@color/light_blue_600</item>
+    <style name="PopupAnimation">
+        <item name="android:windowEnterAnimation">@anim/down_up</item>
     </style>
 </resources>

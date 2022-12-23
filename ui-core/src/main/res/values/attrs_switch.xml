@@ -1,13 +1,2 @@
 <resources>
-    <declare-styleable name="Switch">
-        <attr name="title" format="string"/>
-        <attr name="shortDescription" format="string"/>
-        <attr name="detailedDescription" format="string"/>
-        <attr name="preferenceName" format="string"/>
-        <attr name="key" format="string"/>
-        <attr name="switchChecked" format="boolean"/>
-        <attr name="useShortDescription" format="boolean"/>
-        <attr name="switchOnColor" format="string|color"/>
-        <attr name="switchOffColor" format="string|color"/>
-    </declare-styleable>
-</resources>
+    </resources>

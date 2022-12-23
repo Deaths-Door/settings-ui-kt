@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="preferenceName" format="string"/>
+    <attr name="key" format="string"/>
+    <attr name="title" format="string"/>
+
+    <declare-styleable name="Switch">
+        <attr name="preferenceName"/>
+        <attr name="key"/>
+
+        <attr name="title"/>
+
+        <attr name="shortDescription" format="string"/>
+        <attr name="detailedDescription" format="string"/>
+        <attr name="useShortDescription" format="boolean"/>
+
+        <attr name="switchChecked" format="boolean"/>
+        <attr name="switchOnColor" format="string|color"/>
+        <attr name="switchOffColor" format="string|color" />
+    </declare-styleable>
+
+    <declare-styleable name="SingleChoice">
+        <attr name="preferenceName"/>
+        <attr name="key"/>
+
+        <attr name="title"/>
+        <attr name="description" format="string"/>
+
+        <attr name="strings" format="reference"/>
+        <attr name="images" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Category" />
+</resources>

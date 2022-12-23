@@ -13,8 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="7.5dp"
-            android:textSize="18sp"
-            tools:text="TITLE" />
+            tools:text="TITLE"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/description"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:paddingStart="10dp"
-            tools:text="DESCRIPTION"
+            android:text="DESCRIPTION"
             android:textSize="12sp"
             android:paddingLeft="10dp" />
     </LinearLayout>
