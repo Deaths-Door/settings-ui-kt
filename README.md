@@ -86,7 +86,7 @@ Attributes XML   | Kotlin Code   | Function      |
 
 ### Switch 
 
-![Demo of my project](images/setting_swtich.gif)
+![Demo of my project](images/setting_switch.gif)
 
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
