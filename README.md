@@ -86,7 +86,7 @@ Attributes XML   | Kotlin Code   | Function      |
 
 ### Switch 
 
-![Demo of my project](images/setting_switch.mp4)
+![Demo of my project](https://github.com/Deaths-Door/Settings-UI/blob/main/images/setting_swtich.mp4)
 
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
