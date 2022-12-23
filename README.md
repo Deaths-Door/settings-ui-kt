@@ -81,16 +81,16 @@ Some commons attributes include ( where this == custom view )
 
 Attributes XML   | Kotlin Code   | Function      |
 | -------------  | ------------- | --------------|
-| preferenceName | this.preferenceName  | give name of preference where value is saved|
-| key            | this.key  | give key of saved value |
+| `preferenceName` | ``` this.preferenceName```  | give name of preference where value is saved|
+| `key`        | `this.key`  | give key of saved value |
 
 ### Switch 
 
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
-| title |  this.title  | sets title of switch view |
-| shortDescription |  this.shortDescription | summary of setting description  |
-| detailedDescription |  this.detailedDescription | more detailed setting description  |
+| `title` |```kotlin  this.title ``` | sets title of switch view |
+| `shortDescription` | ```kotlin  this.shortDescription ```| summary of setting description  |
+| `detailedDescription` | ```kotlin this.detailedDescription``` | more detailed setting description  |
 
 
 
