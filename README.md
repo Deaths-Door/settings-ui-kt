@@ -68,6 +68,7 @@ settingsFragment.addPreference(
         defaultValue = ""
     )
 )
+```
 
 ##Customization
 
