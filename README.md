@@ -88,11 +88,14 @@ Attributes XML   | Kotlin Code   | Function      |
 
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
-| `title` |```kotlin  this.title ``` | sets title of switch view |
-| `shortDescription` | ```kotlin  this.shortDescription ```| summary of setting description  |
-| `detailedDescription` | ```kotlin this.detailedDescription``` | more detailed setting description  |
+| `title` |` this.title ` | sets title of switch view |
+| `shortDescription` | ` this.shortDescription `| summary of setting description  |
+| `detailedDescription` | `this.detailedDescription` | more detailed setting description and if not given default value will be shortDescription  |
+| `useShortDescription` | `this.useShortDescription` | force the use of shortDescription |
 
-
+| `switchChecked` | `this.switchChecked` | should the switch(thumb) be checked|
+| `switchOnColor` | `this.switchOnColor` | set switch(thumb) color when switchChecked == true |
+| `switchOffColor` | `this.switchOffColor` | set switch(thumb) color when switchChecked == false |
 
 
 ## License
