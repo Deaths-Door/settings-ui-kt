@@ -76,7 +76,23 @@ You can customize the appearance and behavior of the SettingsFragment and its pr
 appropriate styles and attributes in your app's theme. Refer to the library's documentation for a full list of available 
 styles and attributes which stated is below.
 
-//TODO add info
+Some commons attributes include ( where this == custom view )
+
+
+Attributes XML   | Kotlin Code   | Function      |
+| -------------  | ------------- | --------------|
+| preferenceName | this.preferenceName  | give name of preference where value is saved|
+| key            | this.key  | give key of saved value |
+
+### Switch 
+
+Attributes XML | Kotlin Code   | Function      |
+| -------------  | ------------- |--------------|
+| title |  this.title  | sets title of switch view |
+| shortDescription |  this.shortDescription | summary of setting description  |
+| detailedDescription |  this.detailedDescription | more detailed setting description  |
+
+
 
 
 ## License
