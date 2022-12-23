@@ -3,7 +3,7 @@
 A Kotlin library for building user settings interfaces in Android applications.
 
 
-##Why use this library
+## Why use this library
 
 - **Easy to use:** The library provides a simple and flexible way to create a settings screen for your Android app,
     with a variety of built-in preference items that can be easily added to the screen.
@@ -70,7 +70,7 @@ settingsFragment.addPreference(
 )
 ```
 
-##Customization
+## Customization
 
 You can customize the appearance and behavior of the SettingsFragment and its preference items by overriding the
 appropriate styles and attributes in your app's theme. Refer to the library's documentation for a full list of available 
