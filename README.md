@@ -86,7 +86,7 @@ Attributes XML   | Kotlin Code   | Function      |
 
 ### Switch 
 
-![Demo of my project](https://github.com/Deaths-Door/Settings-UI/blob/main/images/setting_swtich.gif)
+![Demo of my project](images/setting_swtich.gif)
 
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
