@@ -88,6 +88,24 @@ Attributes XML   | Kotlin Code   | Function      |
 
 ![Demo of my project](images/setting_switch.gif)
 
+Define in XML
+
+
+```kotlin
+<com.deathsdoor.ui_core.widgets.Switch
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        setting:title="Enable Dark Mode"
+        setting:shortDescription="This setting changes theme of app"
+        setting:detailedDescription="Setting changes theme of app between Light and Dark mode"
+        setting:switchChecked="false"
+        setting:switchOffColor="@color/purple_500"
+        setting:switchOnColor="@color/teal_200"
+        setting:key="test"
+        setting:preferenceName="pref" />
+
+```
+
 Attributes XML | Kotlin Code   | Function      |
 | -------------  | ------------- |--------------|
 | `title` |` this.title ` | sets title of switch view |
