@@ -160,6 +160,9 @@ The `SingleChoice` view is a custom view that allows the user to select a single
 | `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
 | `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
 | `items` | Not Availiable | `singleChoice.items = arrayListOf(Choice("Option 1"), Choice("Option 2"), Choice("Option 3"))` | Specifies the list of choices that the user can select from. |
+| `whenLimitExceed` | Not Availiable | `singleChoice.whenLimitExceed' = object:OnRadioButtonLimitExceededListener{
+        override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {}
+    } | Specifies the list of choices that the user can select from. |
 
 
 #### In XML Layout
