@@ -101,22 +101,25 @@ Also provides several `changePreference` functions that allow you to change a va
 You can customize the appearance and behavior of the SettingsFragment and its preference items by overriding the
 appropriate styles and attributes in your app's theme. Refer to the library's documentation for a full list of available 
 styles and attributes which stated is below.
+Some commons attributes include *( where this == custom view )*
 
-Some commons attributes include ( where this == custom view )
 
+Namespace for xml
+```kotlin
+    xmlns:setting="http://schemas.android.com/apk/res-auto"
+```
 
-Attributes XML   | Kotlin Code   | Function      |
-| -------------  | ------------- | --------------|
-| `preferenceName` | ``` this.preferenceName```  | give name of preference where value is saved|
-| `key`        | `this.key`  | give key of saved value |
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
+| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
 
 ### Switch 
 
-![Demo of my project](images/setting_switch.gif)
-
-Define in XML
+The `SwitchSetting` view is a custom view that allows the user to toggle a setting on or off using a switch.
 
 
+#### Define in XML
 ```kotlin
 <com.deathsdoor.ui_core.widgets.Switch
         android:layout_width="match_parent"
@@ -132,15 +135,16 @@ Define in XML
 
 ```
 
-Attributes XML | Kotlin Code   | Function      |
-| -------------  | ------------- |--------------|
-| `title` |` this.title ` | sets title of switch view |
-| `shortDescription` | ` this.shortDescription `| summary of setting description  |
-| `detailedDescription` | `this.detailedDescription` | more detailed setting description and if not given default value will be shortDescription  |
-| `useShortDescription` | `this.useShortDescription` | force the use of shortDescription |
-| `switchChecked` | `this.switchChecked` | should the switch(thumb) be checked|
-| `switchOnColor` | `this.switchOnColor` | set switch(thumb) color when switchChecked == true |
-| `switchOffColor` | `this.switchOffColor` | set switch(thumb) color when switchChecked == false |
+#### Attributes
+
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `title` | `app:title="Turn on notifications"` | `switchSetting.title = "Turn on notifications"` | Specifies the title displayed at the top of the view. |
+| `shortDescription` | `app:shortDescription="Receive notifications"` | `switchSetting.shortDescription = "Receive notifications"` | Specifies a short summary of the setting's description. |
+| `detailedDescription` | `app:detailedDescription="Enabling notifications allows you to receive updates and alerts from the app."` | `switchSetting.detailedDescription = "Enabling notifications allows you to receive updates and alerts from the app."` | Specifies a more detailed description of the setting. If not provided, the value of `shortDescription` will be used. |
+| `useShortDescription` | `app:useShortDescription="true"` | `switchSetting.useShortDescription = true` | Forces the use of the `shortDescription` instead of the `detailedDescription` when displaying the setting's description. |
+| `switchChecked` | `app:switchChecked="true"` | `switchSetting.switchChecked = true` | Specifies whether the switch should be checked or not. |
+| `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked
 
 
 ## License
