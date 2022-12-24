@@ -119,7 +119,7 @@ Namespace for xml
 The `SwitchSetting` view is a custom view that allows the user to toggle a setting on or off using a switch.
 
 
-#### Define in XML
+#### In XML Layout
 ```kotlin
 <com.deathsdoor.ui_core.widgets.Switch
         android:layout_width="match_parent"
@@ -130,7 +130,7 @@ The `SwitchSetting` view is a custom view that allows the user to toggle a setti
         setting:switchChecked="false"
         setting:switchOffColor="@color/purple_500"
         setting:switchOnColor="@color/teal_200"
-        setting:key="test"
+        setting:key="switch"
         setting:preferenceName="pref" />
 
 ```
@@ -147,6 +147,30 @@ The `SwitchSetting` view is a custom view that allows the user to toggle a setti
 | `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked
 | `switchOffColor` | `app:switchOnColor="#0ADHAS"` | `switchSetting.switchOffColor = Color.RED` | Specifies the color of the switch when it is not checked
 
+### SingleChoice
+
+The `SingleChoice` view is a custom view that allows the user to select a single choice from a list of options.
+
+#### Attributes
+
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
+| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
+| `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
+| `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
+| `items` | `app:items="@array/choices"` | `singleChoice.items = arrayListOf(Choice("Option 1"), Choice("Option 2"), Choice("Option 3"))` | Specifies the list of choices that the user can select from. |
+
+
+#### In XML Layout
+```kotlin
+<com.deathsdoor.ui_core.widgets.SingleChoice
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    setting:key="switch"
+    setting:preferenceName="pref"
+    setting:title="Choide Favourties"
+    setting:shortDescription="This setting changes your favourite..."/>
 
 
 ## License
