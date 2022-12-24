@@ -145,6 +145,8 @@ The `SwitchSetting` view is a custom view that allows the user to toggle a setti
 | `useShortDescription` | `app:useShortDescription="true"` | `switchSetting.useShortDescription = true` | Forces the use of the `shortDescription` instead of the `detailedDescription` when displaying the setting's description. |
 | `switchChecked` | `app:switchChecked="true"` | `switchSetting.switchChecked = true` | Specifies whether the switch should be checked or not. |
 | `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked
+| `switchOffColor` | `app:switchOnColor="#0ADHAS"` | `switchSetting.switchOffColor = Color.RED` | Specifies the color of the switch when it is not checked
+
 
 
 ## License
