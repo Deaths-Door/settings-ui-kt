@@ -15,6 +15,7 @@ A Kotlin library for building user settings interfaces in Android applications.
     dropdown lists, and more.
 - **Saves preferences automatically:** The library automatically saves user preferences to Shared Preferences,
     so you don't have to worry about manually storing and retrieving them.
+- **Provides functions to handle preferences:** The library provides function to change and get values from Preferences of different types
     
  ## Contribution
   Any contributions, large or small, major features, bug fixes, additional language translations,recommendations,
@@ -69,6 +70,31 @@ settingsFragment.addPreference(
     )
 )
 ```
+
+## Extra Functions 
+
+### Preference Extensions
+
+These extensions provide several extension functions that make it easier to work with `SharedPreferences` in Android.
+
+To get a `SharedPreferences` instance, you can use the `Context.getPreference(name: String)` function. This function takes a name as a parameter and a mode(default is Context.MODE_PRIVATE) ,returns a `SharedPreferences` object.
+
+```kotlin
+    Context.getPreference(name: String) 
+```
+
+Provides several `getPreferenceValue` functions that allow you to retrieve a value from the `SharedPreferences` object for a given key. These functions accept a default value that will be returned if the key does not exist in the `SharedPreferences`. The functions are overloaded for different data types, including `String`, `Boolean`, `Int`, `Float`, `Long`, `Set<String>` and `Any` (when type is unknown). There is also a version that can be used to retrieve a `List<Any>` of objects.
+
+```kotlin
+    SharedPreferences.getPreferenceValue(key)
+```
+
+Also provides several `changePreference` functions that allow you to change a value in the `SharedPreferences` object for a given key. These functions are also overloaded for different data types, including `String`, `Boolean`, `Int`, `Float`, `Long`, and `Set<String>`. There is also a version that can be used to change a `List<Any>` of objects. All of these functions return `void` and make the changes to the `SharedPreferences` immediately.
+
+```kotlin
+    SharedPreferences.changePreference(key,defaultValue)
+```
+
 
 ## Customization
 
