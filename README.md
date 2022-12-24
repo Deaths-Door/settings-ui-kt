@@ -77,10 +77,10 @@ settingsFragment.addPreference(
 
 These extensions provide several extension functions that make it easier to work with `SharedPreferences` in Android.
 
-To get a `SharedPreferences` instance, you can use the `Context.getPreference(name: String)` function. This function takes a name as a parameter and a mode(default is Context.MODE_PRIVATE) ,returns a `SharedPreferences` object.
+To get a `SharedPreferences` instance, you can use the `Context.getPreference(name: String)` function. This function takes a name as a parameter and a mode *(default is Context.MODE_PRIVATE)* ,returns a `SharedPreferences` object.
 
 ```kotlin
-    Context.getPreference(name: String) 
+    Context.getPreference(name,mode) 
 ```
 
 Provides several `getPreferenceValue` functions that allow you to retrieve a value from the `SharedPreferences` object for a given key. These functions accept a default value that will be returned if the key does not exist in the `SharedPreferences`. The functions are overloaded for different data types, including `String`, `Boolean`, `Int`, `Float`, `Long`, `Set<String>` and `Any` (when type is unknown). There is also a version that can be used to retrieve a `List<Any>` of objects.
