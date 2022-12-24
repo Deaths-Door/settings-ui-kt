@@ -159,7 +159,7 @@ The `SingleChoice` view is a custom view that allows the user to select a single
 | `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
 | `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
 | `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
-| `items` | `app:items="@array/choices"` | `singleChoice.items = arrayListOf(Choice("Option 1"), Choice("Option 2"), Choice("Option 3"))` | Specifies the list of choices that the user can select from. |
+| `items` | Not Availiable | `singleChoice.items = arrayListOf(Choice("Option 1"), Choice("Option 2"), Choice("Option 3"))` | Specifies the list of choices that the user can select from. |
 
 
 #### In XML Layout
@@ -173,9 +173,10 @@ The `SingleChoice` view is a custom view that allows the user to select a single
     setting:shortDescription="This setting changes your favourite..."/>
 
 
+```
+
 ## License
 
-```
 Copyright 2022 Aarav Shah
 
 Licensed under the Apache License, Version 2.0 (the "License");
