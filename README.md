@@ -40,36 +40,7 @@ To use the library, add the following dependency to your app's `build.gradle` fi
 
 ## Usage
 
-To create a settings screen, create a `SettingsFragment` and add it to your app's layout. 
-You can then customize the fragment by adding preference items to it using the `addPreference()` method. 
-The library provides several types of preference items, such as `SwitchPreference`, `EditTextPreference`, and 
-`ListPreference`, which allow you to add a switch, an editable text field, and a dropdown list, respectively, to the 
-settings screen. You can also create your own custom preference items by extending the `Preference` class.
-Here is an example of how to create a `SettingsFragment` and add some preferences to it:
-
-```kotlin
-val settingsFragment = SettingsFragment.newInstance()
-
-settingsFragment.addPreference(
-    SwitchPreference(
-        context = this,
-        title = "Dark Mode",
-        summary = "Enable dark mode for a better reading experience",
-        key = "dark_mode",
-        defaultValue = false
-    )
-)
-
-settingsFragment.addPreference(
-    EditTextPreference(
-        context = this,
-        title = "Username",
-        summary = "Enter your desired username",
-        key = "username",
-        defaultValue = ""
-    )
-)
-```
+TODO
 
 ## Extra Functions 
 
@@ -144,8 +115,26 @@ The `SwitchSetting` view is a custom view that allows the user to toggle a setti
 | `detailedDescription` | `app:detailedDescription="Enabling notifications allows you to receive updates and alerts from the app."` | `switchSetting.detailedDescription = "Enabling notifications allows you to receive updates and alerts from the app."` | Specifies a more detailed description of the setting. If not provided, the value of `shortDescription` will be used. |
 | `useShortDescription` | `app:useShortDescription="true"` | `switchSetting.useShortDescription = true` | Forces the use of the `shortDescription` instead of the `detailedDescription` when displaying the setting's description. |
 | `switchChecked` | `app:switchChecked="true"` | `switchSetting.switchChecked = true` | Specifies whether the switch should be checked or not. |
-| `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked
-| `switchOffColor` | `app:switchOnColor="#0ADHAS"` | `switchSetting.switchOffColor = Color.RED` | Specifies the color of the switch when it is not checked
+| `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked|
+| `switchOffColor` | `app:switchOnColor="#0ADHAS"` | `switchSetting.switchOffColor = Color.RED` | Specifies the color of the switch when it is not checked|
+| `showWarnWhenSwitchToggledOn` | `app:showWarnWhenSwitchToggledOn="false"` | `switchSetting.showWarnWhenSwitchToggledOn = false` | Determines whether a warning message should be displayed when the switch is turned on. |
+| `showWarnWhenSwitchToggledOff` | `app:showWarnWhenSwitchToggledOff="false"` | `switchSetting.showWarnWhenSwitchToggledOff = false` | Determines whether a warning message should be displayed when the switch is turned off.|
+| `showWarnWhenSwitchToggledOnMsg` | `app:showWarnWhenSwitchToggledOnMsg="Message"` | `switchSetting.showWarnWhenSwitchToggledOnMsg = "Message"` | contains the message to be displayed when the switch is turned on and `showWarnWhenSwitchToggledOn` is set to true.|
+| `showWarnWhenSwitchToggledOffMsg` | `app:showWarnWhenSwitchToggledOffMsg="Message"` | `switchSetting.showWarnWhenSwitchToggledOffMsg = "Message"` | contains the message to be displayed when the switch is turned off and `showWarnWhenSwitchToggledOff` is set to true.|
+
+The SwitchCustomView also has a `toggleListener` variable, which is an instance of the `OnSwitchToggleListener` interface. This listener is called when the switch is turned on or off and can be used to perform actions such as displaying a warning message.
+
+```kotlin
+val switchCustomView = SwitchCustomView(context)
+switchCustomView.toggleListener = object : OnSwitchToggleListener {
+    override fun onSwitchToggleOn(switchView: SwitchMaterial) {
+        Toast.makeText(context, "Switch turned on", Toast.LENGTH_SHORT).show()
+    }
+    override fun onSwitchToggleOff(switchView: SwitchMaterial) {
+        Toast.makeText(context, "Switch turned off", Toast.LENGTH_SHORT).show()
+    }
+}
+```
 
 ### SingleChoice
 
