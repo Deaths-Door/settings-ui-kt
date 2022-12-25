@@ -44,8 +44,7 @@
         <attr name="title"/>
         <attr name="description"/>
         <attr name="inputType" format="enum">
-            <enum name=""/>
+            <enum name="test" value="0"/>
         </attr>
-
     </declare-styleable>
 </resources>
