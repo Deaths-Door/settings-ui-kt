@@ -3,6 +3,7 @@
     <attr name="preferenceName" format="string"/>
     <attr name="key" format="string"/>
     <attr name="title" format="string"/>
+    <attr name="description" format="string"/>
 
     <declare-styleable name="Switch">
         <attr name="preferenceName"/>
@@ -31,12 +32,20 @@
         <attr name="key"/>
 
         <attr name="title"/>
-        <attr name="description" format="string"/>
+        <attr name="description" />
     </declare-styleable>
 
     <declare-styleable name="Category" />
 
     <declare-styleable name="TextInput">
+        <attr name="preferenceName"/>
+        <attr name="key"/>
+
+        <attr name="title"/>
+        <attr name="description"/>
+        <attr name="inputType" format="enum">
+            <enum name=""/>
+        </attr>
 
     </declare-styleable>
 </resources>

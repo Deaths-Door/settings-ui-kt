@@ -2,7 +2,7 @@ package com.deathsdoor.ui_core.extras.functinos.extensions
 
 import com.deathsdoor.ui_core.R
 import com.deathsdoor.ui_core.extras.interfaces.OnSwitchToggleListener
-
+/*
 object AttributesBuilder {
     class AttributeSet(
         private val attributes: Map<String, Any>) : android.util.AttributeSet {
@@ -86,4 +86,4 @@ object AttributesBuilder {
             return value
         }
     }
-}
+}*/
