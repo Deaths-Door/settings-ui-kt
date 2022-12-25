@@ -140,18 +140,6 @@ switchCustomView.toggleListener = object : OnSwitchToggleListener {
 
 The `SingleChoice` view is a custom view that allows the user to select a single choice from a list of options.
 
-#### Attributes
-
-| Attribute | XML Syntax | Kotlin Code | Description |
-| --- | --- | --- | --- |
-| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
-| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
-| `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
-| `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
-| `items` | Not Availiable | `singleChoice.items = arrayListOf(Choice("Option 1"), Choice("Option 2"), Choice("Option 3"))` | Specifies the list of choices that the user can select from. |
-| `whenLimitExceed` | Not Availiable | `singleChoice.whenLimitExceed' = object:OnRadioButtonLimitExceededListener{ override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {} }` | Specifies what to do when user tries to select more than 1 option |
-
-
 #### In XML Layout
 ```kotlin
 <com.deathsdoor.ui_core.widgets.SingleChoice
@@ -164,7 +152,25 @@ The `SingleChoice` view is a custom view that allows the user to select a single
 
 
 ```
+#### Attributes
 
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
+| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
+| `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
+| `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
+
+The SwitchCustomView also has a `whenLimitExceed` variable, which is an instance of the `OnRadioButtonLimitExceededListener` interface. This listener is called when the limit (which is 1) has exceeded.
+
+```kotlin
+val singleChoice = SingleChoice(context)
+singleChoice.whenLimitExceed = object:OnRadioButtonLimitExceededListener {
+        override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {
+            Toast.makeText(context,"LIMIT EXCEEDED",Toast.LENGTH_SHORT).show()
+        }
+    }
+```
 ## License
 
 ```
