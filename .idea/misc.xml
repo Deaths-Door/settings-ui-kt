@@ -3,14 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Aarav Aditya Shah/.gradle/caches/transforms-3/fc1f82018352b0cb2503b51beb61b53f/transformed/appcompat-1.5.1/res/drawable/abc_btn_borderless_material.xml" value="0.1725" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/app/src/main/res/layout/setting_test.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/fragment_settings.xml" value="0.1796875" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_category.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_choice.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_single_choice.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_single_choice_bottom_sheet.xml" value="0.1796875" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_switch.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_swtich.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/item_textinput.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/sample_single_choice.xml" value="0.1796875" />
         <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/sample_switch.xml" value="0.1796875" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/sample_text_input.xml" value="0.165625" />
+        <entry key="..\:/Users/Aarav Aditya Shah/Documents/GitHub/Settings-UI/ui-core/src/main/res/layout/viewlists.xml" value="0.1796875" />
       </map>
     </option>
   </component>

@@ -17,6 +17,13 @@
         <attr name="switchChecked" format="boolean"/>
         <attr name="switchOnColor" format="string|color"/>
         <attr name="switchOffColor" format="string|color" />
+
+        <attr name="showWarnWhenSwitchToggledOn" format="boolean"/>
+        <attr name="showWarnWhenSwitchToggledOff" format="boolean"/>
+
+        <attr name="showWarnWhenSwitchToggledOnMsg" format="string"/>
+        <attr name="showWarnWhenSwitchToggledOffMsg" format="string"/>
+        <attr name="toggleListener"/>
     </declare-styleable>
 
     <declare-styleable name="SingleChoice">
@@ -25,10 +32,11 @@
 
         <attr name="title"/>
         <attr name="description" format="string"/>
-
-        <attr name="strings" format="reference"/>
-        <attr name="images" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="Category" />
+
+    <declare-styleable name="TextInput">
+
+    </declare-styleable>
 </resources>

@@ -9,12 +9,11 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
-import com.deathsdoor.ui_core.extras.functinos.Extensions.changePreference
-import com.deathsdoor.ui_core.extras.functinos.Extensions.setSingleLineCode
-import com.deathsdoor.ui_core.extras.functinos.Extensions.stringOrColor
+import com.deathsdoor.ui_core.extras.functinos.extensions.Extensions.stringOrColor
 import com.deathsdoor.ui_core.R
-import com.deathsdoor.ui_core.extras.annonations.ViewDoc
 import com.deathsdoor.ui_core.databinding.ItemSwitchBinding
+import com.deathsdoor.ui_core.extras.interfaces.OnSwitchToggleListener
+import com.deathsdoor.ui_core.public.PreferenceExtensions.changePreference
 import com.deathsdoor.ui_core.widgets.Switch.Default.defaultDetailedDescription
 import com.deathsdoor.ui_core.widgets.Switch.Default.defaultKey
 import com.deathsdoor.ui_core.widgets.Switch.Default.defaultPreference
@@ -26,63 +25,76 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 //TODO add switch on off color change
 class Switch(context: Context, attrs: AttributeSet): FrameLayout(context,attrs){
+
     private val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switch)
 
     private var titleView : TextView
     private var switchView: SwitchMaterial
     private var descriptionView: TextView
 
-    @ViewDoc(description = "name of key to save settings into")
     var key = typedArray.defaultKey()
-        //typedArray.getString(R.styleable.Switch_key)
 
-    @ViewDoc(description = "name of preference to save settings into")
-    var preference =  typedArray.defaultPreference(context)
-        //context.getSharedPreferences(typedArray.getString(R.styleable.Switch_preferenceName),Context.MODE_PRIVATE)
+    var preference = typedArray.defaultPreference(context)
 
-    @ViewDoc(description = "main title of the view")
     var title = typedArray.defaultTitle()
         set(value){
             field = value
             field?.let { titleView.changeTitle(it) }
         }
 
-    @ViewDoc(description = "is the switch checked or not")
     var switchChecked = typedArray.defaultSwitchChecked(preference,key)
         set(value){
             field = value
             switchView.switched(switchChecked)
         }
-    //preference.getBoolean(key,typedArray.getBoolean(R.styleable.Switch_switchChecked,false))
 
-
-    @ViewDoc(description = "color of switch when on")
     var switchOnColor = Color.GREEN
 
-    @ViewDoc(description = "color of switch when off")
     var switchOffColor = Color.RED
 
-    @ViewDoc(description = "should set short or detailed description")
     var useShortDescription = typedArray.defaultUseShortDescription()
         set(value){
             field = value
-            if(useShortDescription) descriptionView.text = shortDescription
-            else descriptionView.text = detailedDescription
+            if(useShortDescription) {
+                toggleListener.onSwitchToggleOn(switchView)
+                descriptionView.text = shortDescription
+
+            } else {
+                toggleListener.onSwitchToggleOff(switchView)
+                descriptionView.text = detailedDescription
+            }
         }
 
-    @ViewDoc(description = "short description of setting")
     var shortDescription = typedArray.defaultShortDescription()
         set(value){
             field = value
             if(useShortDescription) descriptionView.text = field
         }
 
-    @ViewDoc(description = "long and detailed description of setting")
     var detailedDescription = typedArray.defaultDetailedDescription()
         set(value){
             field = value
             if(!useShortDescription) descriptionView.text = field
         }
+
+    //TODO add to attrs and doc
+    var showWarnWhenSwitchToggledOn = false
+    var showWarnWhenSwitchToggledOff = false
+
+    var showWarnWhenSwitchToggledOnMsg = ""
+    var showWarnWhenSwitchToggledOffMsg = ""
+
+    //TODO improve warning msg
+    var toggleListener =  object :OnSwitchToggleListener{
+        override fun onSwitchToggleOn(switchView: SwitchMaterial) {
+            if(showWarnWhenSwitchToggledOn) Toast.makeText(context,showWarnWhenSwitchToggledOnMsg,Toast.LENGTH_SHORT).show()
+        }
+        override fun onSwitchToggleOff(switchView: SwitchMaterial) {
+            if(showWarnWhenSwitchToggledOff) Toast.makeText(context,showWarnWhenSwitchToggledOffMsg,Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
     private object Default{
         fun TypedArray.defaultKey() = this.getString(R.styleable.Switch_key)
         fun TypedArray.defaultPreference(context: Context) = context.getSharedPreferences(this.getString(R.styleable.Switch_preferenceName),Context.MODE_PRIVATE)

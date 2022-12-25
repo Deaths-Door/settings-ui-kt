@@ -1,5 +1,3 @@
 <resources>
-    <style name="PopupAnimation">
-        <item name="android:windowEnterAnimation">@anim/down_up</item>
-    </style>
+
 </resources>
