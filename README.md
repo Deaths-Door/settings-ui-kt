@@ -2,6 +2,8 @@
 
 A Kotlin library for building user settings interfaces in Android applications.
 
+**Note :**  This library is in development, which means it is prone to some errors and views may not look as clean. It may also provide methods that are not documented, so it is recommended not to use these methods as they may be changed in the future.
+
 
 ## Why use this library
 
@@ -40,36 +42,7 @@ To use the library, add the following dependency to your app's `build.gradle` fi
 
 ## Usage
 
-To create a settings screen, create a `SettingsFragment` and add it to your app's layout. 
-You can then customize the fragment by adding preference items to it using the `addPreference()` method. 
-The library provides several types of preference items, such as `SwitchPreference`, `EditTextPreference`, and 
-`ListPreference`, which allow you to add a switch, an editable text field, and a dropdown list, respectively, to the 
-settings screen. You can also create your own custom preference items by extending the `Preference` class.
-Here is an example of how to create a `SettingsFragment` and add some preferences to it:
-
-```kotlin
-val settingsFragment = SettingsFragment.newInstance()
-
-settingsFragment.addPreference(
-    SwitchPreference(
-        context = this,
-        title = "Dark Mode",
-        summary = "Enable dark mode for a better reading experience",
-        key = "dark_mode",
-        defaultValue = false
-    )
-)
-
-settingsFragment.addPreference(
-    EditTextPreference(
-        context = this,
-        title = "Username",
-        summary = "Enter your desired username",
-        key = "username",
-        defaultValue = ""
-    )
-)
-```
+TODO
 
 ## Extra Functions 
 
@@ -101,22 +74,25 @@ Also provides several `changePreference` functions that allow you to change a va
 You can customize the appearance and behavior of the SettingsFragment and its preference items by overriding the
 appropriate styles and attributes in your app's theme. Refer to the library's documentation for a full list of available 
 styles and attributes which stated is below.
+Some commons attributes include *( where this == custom view )*
 
-Some commons attributes include ( where this == custom view )
 
+Namespace for xml
+```kotlin
+    xmlns:setting="http://schemas.android.com/apk/res-auto"
+```
 
-Attributes XML   | Kotlin Code   | Function      |
-| -------------  | ------------- | --------------|
-| `preferenceName` | ``` this.preferenceName```  | give name of preference where value is saved|
-| `key`        | `this.key`  | give key of saved value |
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
+| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
 
 ### Switch 
 
-![Demo of my project](images/setting_switch.gif)
-
-Define in XML
+The `SwitchSetting` view is a custom view that allows the user to toggle a setting on or off using a switch.
 
 
+#### In XML Layout
 ```kotlin
 <com.deathsdoor.ui_core.widgets.Switch
         android:layout_width="match_parent"
@@ -127,22 +103,76 @@ Define in XML
         setting:switchChecked="false"
         setting:switchOffColor="@color/purple_500"
         setting:switchOnColor="@color/teal_200"
-        setting:key="test"
+        setting:key="switch"
         setting:preferenceName="pref" />
 
 ```
 
-Attributes XML | Kotlin Code   | Function      |
-| -------------  | ------------- |--------------|
-| `title` |` this.title ` | sets title of switch view |
-| `shortDescription` | ` this.shortDescription `| summary of setting description  |
-| `detailedDescription` | `this.detailedDescription` | more detailed setting description and if not given default value will be shortDescription  |
-| `useShortDescription` | `this.useShortDescription` | force the use of shortDescription |
-| `switchChecked` | `this.switchChecked` | should the switch(thumb) be checked|
-| `switchOnColor` | `this.switchOnColor` | set switch(thumb) color when switchChecked == true |
-| `switchOffColor` | `this.switchOffColor` | set switch(thumb) color when switchChecked == false |
+#### Attributes
+
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `title` | `app:title="Turn on notifications"` | `switchSetting.title = "Turn on notifications"` | Specifies the title displayed at the top of the view. |
+| `shortDescription` | `app:shortDescription="Receive notifications"` | `switchSetting.shortDescription = "Receive notifications"` | Specifies a short summary of the setting's description. |
+| `detailedDescription` | `app:detailedDescription="Enabling notifications allows you to receive updates and alerts from the app."` | `switchSetting.detailedDescription = "Enabling notifications allows you to receive updates and alerts from the app."` | Specifies a more detailed description of the setting. If not provided, the value of `shortDescription` will be used. |
+| `useShortDescription` | `app:useShortDescription="true"` | `switchSetting.useShortDescription = true` | Forces the use of the `shortDescription` instead of the `detailedDescription` when displaying the setting's description. |
+| `switchChecked` | `app:switchChecked="true"` | `switchSetting.switchChecked = true` | Specifies whether the switch should be checked or not. |
+| `switchOnColor` | `app:switchOnColor="#00FF00"` | `switchSetting.switchOnColor = Color.GREEN` | Specifies the color of the switch when it is checked|
+| `switchOffColor` | `app:switchOnColor="#0ADHAS"` | `switchSetting.switchOffColor = Color.RED` | Specifies the color of the switch when it is not checked|
+| `showWarnWhenSwitchToggledOn` | `app:showWarnWhenSwitchToggledOn="false"` | `switchSetting.showWarnWhenSwitchToggledOn = false` | Determines whether a warning message should be displayed when the switch is turned on. |
+| `showWarnWhenSwitchToggledOff` | `app:showWarnWhenSwitchToggledOff="false"` | `switchSetting.showWarnWhenSwitchToggledOff = false` | Determines whether a warning message should be displayed when the switch is turned off.|
+| `showWarnWhenSwitchToggledOnMsg` | `app:showWarnWhenSwitchToggledOnMsg="Message"` | `switchSetting.showWarnWhenSwitchToggledOnMsg = "Message"` | contains the message to be displayed when the switch is turned on and `showWarnWhenSwitchToggledOn` is set to true.|
+| `showWarnWhenSwitchToggledOffMsg` | `app:showWarnWhenSwitchToggledOffMsg="Message"` | `switchSetting.showWarnWhenSwitchToggledOffMsg = "Message"` | contains the message to be displayed when the switch is turned off and `showWarnWhenSwitchToggledOff` is set to true.|
+
+The SwitchCustomView also has a `toggleListener` variable, which is an instance of the `OnSwitchToggleListener` interface. This listener is called when the switch is turned on or off and can be used to perform actions such as displaying a warning message.
+
+```kotlin
+val switchCustomView = SwitchCustomView(context)
+switchCustomView.toggleListener = object : OnSwitchToggleListener {
+    override fun onSwitchToggleOn(switchView: SwitchMaterial) {
+        Toast.makeText(context, "Switch turned on", Toast.LENGTH_SHORT).show()
+    }
+    override fun onSwitchToggleOff(switchView: SwitchMaterial) {
+        Toast.makeText(context, "Switch turned off", Toast.LENGTH_SHORT).show()
+    }
+}
+```
+
+### SingleChoice
+
+The `SingleChoice` view is a custom view that allows the user to select a single choice from a list of options.
+
+#### In XML Layout
+```kotlin
+<com.deathsdoor.ui_core.widgets.SingleChoice
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    setting:key="switch"
+    setting:preferenceName="pref"
+    setting:title="Choide Favourties"
+    setting:shortDescription="This setting changes your favourite..."/>
 
 
+```
+#### Attributes
+
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
+| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
+| `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
+| `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
+
+The SwitchCustomView also has a `whenLimitExceed` variable, which is an instance of the `OnRadioButtonLimitExceededListener` interface. This listener is called when the limit (which is 1) has exceeded.
+
+```kotlin
+val singleChoice = SingleChoice(context)
+singleChoice.whenLimitExceed = object:OnRadioButtonLimitExceededListener {
+        override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {
+            Toast.makeText(context,"LIMIT EXCEEDED",Toast.LENGTH_SHORT).show()
+        }
+    }
+```
 ## License
 
 ```
