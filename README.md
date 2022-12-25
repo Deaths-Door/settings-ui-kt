@@ -2,6 +2,8 @@
 
 A Kotlin library for building user settings interfaces in Android applications.
 
+**Note :**  This library is in development, which means it is prone to some errors and views may not look as clean. It may also provide methods that are not documented, so it is recommended not to use these methods as they may be changed in the future.
+
 
 ## Why use this library
 
