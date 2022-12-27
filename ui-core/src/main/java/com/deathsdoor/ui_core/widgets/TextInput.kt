@@ -7,16 +7,22 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.deathsdoor.ui_core.databinding.ItemTextinputBinding
+import com.deathsdoor.ui_core.extras.functinos.extensions.Extensions.showPopUpEditTextPopUP
 
 
-class TextInput(context: Context, attrs: AttributeSet): FrameLayout(context,attrs) {
+
+
+class TextInput(context: Context, attrs: AttributeSet?): FrameLayout(context,attrs) {
+    constructor(context: Context) : this(context,null)
+
     var titleView : TextView
     var descriptionView : TextView
     var editView : ImageView
 
-   // var title = TODO()
-    //var description = TODO()
-    //var inputType = TODO()
+    var title = TODO()
+    var description = TODO()
+    var inputType = TODO()
+    var hint = TODO()
     init {
         ItemTextinputBinding.inflate(LayoutInflater.from(context),this,true)
             .also {
@@ -25,7 +31,7 @@ class TextInput(context: Context, attrs: AttributeSet): FrameLayout(context,attr
                 editView = it.edit
 
                 editView.setOnClickListener {
-
+                    context.showPopUpEditTextPopUP(title,hint,inputType)
                 }
             }
     }

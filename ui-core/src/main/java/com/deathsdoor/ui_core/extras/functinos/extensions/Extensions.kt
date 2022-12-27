@@ -3,7 +3,7 @@ package com.deathsdoor.ui_core.extras.functinos.extensions
 import android.content.Context
 import android.content.res.TypedArray
 import android.os.Build
-import android.util.AttributeSet
+import android.text.InputType
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,12 +13,12 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.children
 import com.deathsdoor.ui_core.databinding.ItemSingleChoiceBottomSheetBinding
+import com.deathsdoor.ui_core.databinding.PopupEdittextBinding
 import com.deathsdoor.ui_core.extras.Choice
 import com.deathsdoor.ui_core.extras.functinos.extensions.ImageExtensions.loadImg
 import com.deathsdoor.ui_core.extras.interfaces.OnRadioButtonLimitExceededListener
 
 object Extensions {
-
     internal fun TypedArray.stringOrColor(attr: Int,string: () -> Unit, color: () -> Unit){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             when(this.getType(attr)){
@@ -33,6 +33,20 @@ object Extensions {
                 else color()
             }
         }
+    }
+
+    internal fun Context.showPopUpEditTextPopUP(title: String, hint: String, inputType: Int): Pair<PopupEdittextBinding, PopupWindow> {
+        val popupViewBinding = PopupEdittextBinding.inflate(LayoutInflater.from(this))
+
+        popupViewBinding.title.text = title
+        popupViewBinding.inputField.hint = hint
+        popupViewBinding.inputField.inputType = inputType
+
+        val popupWindow = PopupWindow(popupViewBinding.root, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        popupWindow.isFocusable = true
+        popupWindow.showAtLocation(popupViewBinding.root, Gravity.CENTER, 0, 0)
+        return Pair(popupViewBinding,popupWindow)
+
     }
 
     internal fun Context.showSingleChoicePopUp(): Pair<ItemSingleChoiceBottomSheetBinding, PopupWindow> {

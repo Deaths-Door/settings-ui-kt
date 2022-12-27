@@ -24,7 +24,8 @@ import com.deathsdoor.ui_core.widgets.Switch.Default.defaultUseShortDescription
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 //TODO add switch on off color change
-class Switch(context: Context, attrs: AttributeSet): FrameLayout(context,attrs){
+class Switch(context: Context, attrs: AttributeSet?): FrameLayout(context,attrs){
+    constructor(context: Context) : this(context,null)
 
     private val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switch)
 
@@ -77,14 +78,12 @@ class Switch(context: Context, attrs: AttributeSet): FrameLayout(context,attrs){
             if(!useShortDescription) descriptionView.text = field
         }
 
-    //TODO add to attrs and doc
     var showWarnWhenSwitchToggledOn = false
     var showWarnWhenSwitchToggledOff = false
 
     var showWarnWhenSwitchToggledOnMsg = ""
     var showWarnWhenSwitchToggledOffMsg = ""
 
-    //TODO improve warning msg
     var toggleListener =  object :OnSwitchToggleListener{
         override fun onSwitchToggleOn(switchView: SwitchMaterial) {
             if(showWarnWhenSwitchToggledOn) Toast.makeText(context,showWarnWhenSwitchToggledOnMsg,Toast.LENGTH_SHORT).show()
