@@ -138,8 +138,64 @@ switchCustomView.toggleListener = object : OnSwitchToggleListener {
 }
 ```
 
+### TextInput
+
+The `TextInput` view is a custom view that displays a title, a description, and an edit button. When the edit button is clicked, a pop-up window appears with an EditText field where the user can enter a new value. The new value is then saved and the pop-up window is dismissed.
+
+#### In XML Layout
+```kotlin
+    <com.deathsdoor.ui_core.widgets.TextInput
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        setting:description="Description"
+        setting:inputType="InputType.ClASS_TEXT"
+        setting:key="singleChoice"
+        setting:preferenceName="smth"
+        setting:title="Title" />
+```
+
+| Attribute | XML Syntax | Kotlin Code | Description |
+| --- | --- | --- | --- |
+| `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
+| `description` | `app:description="Enter username"` | `singleChoice.description = "Enter username"` | Specifies the description displayed below the title. |
+| `inputType` | `app:inputType="1"` | `singleChoice.inputType = InputType.CLASS_MAKE_TEXT` | Specifies the input type for the edit text. Accepted values are constants from the InputType class, such as TYPE_CLASS_TEXT or TYPE_CLASS_PHONE. |
+| `hint` | `app:hint="Hint"` | `singleChoice.hint = "Hint"` | Specifies the hint text to be displayed in the edit text when it is empty. |
+
+The TypeInput also has a `onConfirmListener` variable, which is an instance of the `OnConfirmListener` interface. This interface is used to define a listener for events related to the confirmation of input in a TextInput view.
+
+- **`onConfirm(input: String, window: PopupWindow): Boolean` :** This method is called when the user confirms the input by clicking the "OK" button in the input dialog. The method should return a boolean value indicating whether the input is valid. If the input is valid, the value will be saved. If the input is invalid, `onDeny` is called.
+
+- **`onCancel(input: String, window: PopupWindow) :` This method is called when the user cancels the input by clicking the "Cancel" button in the input dialog. The method should close the input dialog by calling the `dismiss method of the window object`.
+
+- **`onDeny(window: PopupWindow) :` This method is called when the user denies the input by clicking the "Deny" button in the input dialog. The method should display a toast message or perform some other action to indicate that the input has been denied.
+
+
+**Note :** Below is the default implementation of the `onConfirmListener` variable
+
+```kotlin
+var onConfirmListener = object : OnConfirmListener{
+        override fun onConfirm(input: String, window: PopupWindow): Boolean = true
+        override fun onCancel(input: String, window: PopupWindow) = window.dismiss()
+       override fun onDeny(_binding: PopupEdittextBinding, window: PopupWindow) {
+            
+            val currentBackground = (_binding.inputField.background as ColorDrawable).color
+            _binding.inputField.setBackgroundColor(Color.RED)
+
+            Toast.makeText(context,"DENIED",Toast.LENGTH_SHORT).show()
+
+            // Vibrate the edit text view
+            val vibrator =  context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
+            else @Suppress("DEPRECATION") vibrator.vibrate(50)
+
+            _binding.inputField.setBackgroundColor(currentBackground)
+        }
+    }
+```
+
 ### SingleChoice
 
+@Decpreated
 The `SingleChoice` view is a custom view that allows the user to select a single choice from a list of options.
 
 #### In XML Layout
@@ -151,15 +207,11 @@ The `SingleChoice` view is a custom view that allows the user to select a single
     setting:preferenceName="pref"
     setting:title="Choide Favourties"
     setting:shortDescription="This setting changes your favourite..."/>
-
-
 ```
 #### Attributes
 
 | Attribute | XML Syntax | Kotlin Code | Description |
 | --- | --- | --- | --- |
-| `preferenceName` | `app:preferenceName="choices"` | `singleChoice.preferenceName = getSharedPreferences("choices", Context.MODE_PRIVATE)` | Specifies the name of the shared preferences file where the selected choice will be stored. |
-| `key` | `app:key="selected_choice"` | `singleChoice.key = "selected_choice"` | Specifies the key used to store the selected choice in the shared preferences file. |
 | `title` | `app:title="Select a choice"` | `singleChoice.title = "Select a choice"` | Specifies the title displayed at the top of the view. |
 | `description` | `app:description="Choose one of the following options"` | `singleChoice.description = "Choose one of the following options"` | Specifies the description displayed below the title. |
 
@@ -167,8 +219,8 @@ The SwitchCustomView also has a `whenLimitExceed` variable, which is an instance
 
 ```kotlin
 val singleChoice = SingleChoice(context)
-singleChoice.whenLimitExceed = object:OnRadioButtonLimitExceededListener {
-        override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {
+singleChoice.whenLimitExceed = object:OnLimitExceededListener {
+        override fun onLimitExceeded(radioGroup: RadioGroup, id: Int) {
             Toast.makeText(context,"LIMIT EXCEEDED",Toast.LENGTH_SHORT).show()
         }
     }
