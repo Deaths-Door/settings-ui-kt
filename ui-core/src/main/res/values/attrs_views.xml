@@ -24,7 +24,6 @@
 
         <attr name="showWarnWhenSwitchToggledOnMsg" format="string"/>
         <attr name="showWarnWhenSwitchToggledOffMsg" format="string"/>
-        <attr name="toggleListener"/>
     </declare-styleable>
 
     <declare-styleable name="SingleChoice">
@@ -43,8 +42,7 @@
 
         <attr name="title"/>
         <attr name="description"/>
-        <attr name="inputType" format="enum">
-            <enum name="test" value="0"/>
-        </attr>
+        <attr name="hint" format="string"/>
+        <attr name="inputType" format="integer" />
     </declare-styleable>
 </resources>

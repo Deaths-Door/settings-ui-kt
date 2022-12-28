@@ -34,15 +34,31 @@
             android:hint="Enter Playlist Title"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/light_blue_400"
-        app:cornerRadius="25dp"
-        android:text="Save Playlist"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="32dp"
+            android:backgroundTint="@color/light_blue_400"
+            app:cornerRadius="25dp"
+            android:text="Cancel"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/light_blue_400"
+            app:cornerRadius="25dp"
+            android:text="Save Playlist"/>
+
+    </FrameLayout>
+
 
 </LinearLayout>

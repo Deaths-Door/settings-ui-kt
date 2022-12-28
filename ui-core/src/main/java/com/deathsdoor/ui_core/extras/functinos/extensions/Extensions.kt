@@ -3,7 +3,6 @@ package com.deathsdoor.ui_core.extras.functinos.extensions
 import android.content.Context
 import android.content.res.TypedArray
 import android.os.Build
-import android.text.InputType
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -16,7 +15,7 @@ import com.deathsdoor.ui_core.databinding.ItemSingleChoiceBottomSheetBinding
 import com.deathsdoor.ui_core.databinding.PopupEdittextBinding
 import com.deathsdoor.ui_core.extras.Choice
 import com.deathsdoor.ui_core.extras.functinos.extensions.ImageExtensions.loadImg
-import com.deathsdoor.ui_core.extras.interfaces.OnRadioButtonLimitExceededListener
+import com.deathsdoor.ui_core.extras.interfaces.OnLimitExceededListener
 
 object Extensions {
     internal fun TypedArray.stringOrColor(attr: Int,string: () -> Unit, color: () -> Unit){
@@ -35,12 +34,14 @@ object Extensions {
         }
     }
 
-    internal fun Context.showPopUpEditTextPopUP(title: String, hint: String, inputType: Int): Pair<PopupEdittextBinding, PopupWindow> {
+    internal fun Context.showPopUpEditTextPopUP(title: String?, hint: String?, inputType: Int?): Pair<PopupEdittextBinding, PopupWindow> {
         val popupViewBinding = PopupEdittextBinding.inflate(LayoutInflater.from(this))
 
         popupViewBinding.title.text = title
         popupViewBinding.inputField.hint = hint
-        popupViewBinding.inputField.inputType = inputType
+
+        inputType?.let { popupViewBinding.inputField.inputType = it }
+
 
         val popupWindow = PopupWindow(popupViewBinding.root, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         popupWindow.isFocusable = true
@@ -57,7 +58,7 @@ object Extensions {
         return Pair(popupViewBinding,popupWindow)
     }
 
-    internal fun RadioGroup.setLimit(max:Int,hörter:OnRadioButtonLimitExceededListener){
+    internal fun RadioGroup.setLimit(max:Int,hörter:OnLimitExceededListener){
         this.setOnCheckedChangeListener { radioGroup, id ->
             if(id == -1) return@setOnCheckedChangeListener
 
@@ -66,7 +67,7 @@ object Extensions {
                 val rb = it as RadioButton
                 if(rb.isChecked) checkedCount++
 
-                if(checkedCount > max) hörter.onRadioButtonLimitExceeded(radioGroup,id)
+                if(checkedCount > max) hörter.onLimitExceeded(radioGroup,id)
             }
         }
     }

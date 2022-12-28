@@ -15,7 +15,7 @@ import com.deathsdoor.ui_core.extras.Choice
 import com.deathsdoor.ui_core.extras.functinos.extensions.Extensions.addChildren
 import com.deathsdoor.ui_core.extras.functinos.extensions.Extensions.setLimit
 import com.deathsdoor.ui_core.extras.functinos.extensions.Extensions.showSingleChoicePopUp
-import com.deathsdoor.ui_core.extras.interfaces.OnRadioButtonLimitExceededListener
+import com.deathsdoor.ui_core.extras.interfaces.OnLimitExceededListener
 import com.deathsdoor.ui_core.widgets.SingleChoice.Defaults.defaultDescription
 import com.deathsdoor.ui_core.widgets.SingleChoice.Defaults.defaultKey
 import com.deathsdoor.ui_core.widgets.SingleChoice.Defaults.defaultPreferenceName
@@ -50,8 +50,8 @@ class SingleChoice(context: Context, attrs: AttributeSet) : LinearLayout(context
             radioGroupView?.addChildren(field)
             radioGroupView?.setLimit(1,whenLimitExceed)
         }
-    val whenLimitExceed = object:OnRadioButtonLimitExceededListener{
-        override fun onRadioButtonLimitExceeded(radioGroup: RadioGroup, id: Int) {
+    val whenLimitExceed = object:OnLimitExceededListener{
+        override fun onLimitExceeded(radioGroup: RadioGroup, id: Int) {
             Toast.makeText(context,"LIMIT EXCEEDED",Toast.LENGTH_SHORT).show()
         }
     }

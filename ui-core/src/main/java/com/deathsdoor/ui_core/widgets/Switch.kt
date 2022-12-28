@@ -23,7 +23,6 @@ import com.deathsdoor.ui_core.widgets.Switch.Default.defaultTitle
 import com.deathsdoor.ui_core.widgets.Switch.Default.defaultUseShortDescription
 import com.google.android.material.switchmaterial.SwitchMaterial
 
-//TODO add switch on off color change
 class Switch(context: Context, attrs: AttributeSet?): FrameLayout(context,attrs){
     constructor(context: Context) : this(context,null)
 

@@ -42,4 +42,13 @@
         setting:title="Choose from list"
         setting:description="Describe the settings"
         />
+
+    <com.deathsdoor.ui_core.widgets.TextInput
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        setting:description="Description"
+        setting:inputType="1"
+        setting:key="singleChoice"
+        setting:preferenceName="smth"
+        setting:title="Title" />
 </LinearLayout>
