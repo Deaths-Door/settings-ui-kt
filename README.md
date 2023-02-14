@@ -165,9 +165,9 @@ The TypeInput also has a `onConfirmListener` variable, which is an instance of t
 
 - **`onConfirm(input: String, window: PopupWindow): Boolean` :** This method is called when the user confirms the input by clicking the "OK" button in the input dialog. The method should return a boolean value indicating whether the input is valid. If the input is valid, the value will be saved. If the input is invalid, `onDeny` is called.
 
-- **`onCancel(input: String, window: PopupWindow) :` This method is called when the user cancels the input by clicking the "Cancel" button in the input dialog. The method should close the input dialog by calling the `dismiss method of the window object`.
+- **`onCancel(input: String, window: PopupWindow) :`** This method is called when the user cancels the input by clicking the "Cancel" button in the input dialog. The method should close the input dialog by calling the `dismiss method of the window object`.
 
-- **`onDeny(window: PopupWindow) :` This method is called when the user denies the input by clicking the "Deny" button in the input dialog. The method should display a toast message or perform some other action to indicate that the input has been denied.
+- **`onDeny(_binding: PopupEdittextBinding, window: PopupWindow) :`** This method is called when the user denies the input by clicking the "Deny" button in the input dialog. The method should display a toast message or perform some other action to indicate that the input has been denied.
 
 
 **Note :** Below is the default implementation of the `onConfirmListener` variable
