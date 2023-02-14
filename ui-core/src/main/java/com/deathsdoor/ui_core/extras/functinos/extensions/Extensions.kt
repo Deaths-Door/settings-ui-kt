@@ -11,13 +11,14 @@ import android.widget.PopupWindow
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.children
-import com.deathsdoor.ui_core.databinding.ItemSingleChoiceBottomSheetBinding
+import com.deathsdoor.ui_core.databinding.ItemChoiceBottomSheetBinding
 import com.deathsdoor.ui_core.databinding.PopupEdittextBinding
 import com.deathsdoor.ui_core.extras.Choice
 import com.deathsdoor.ui_core.extras.functinos.extensions.ImageExtensions.loadImg
 import com.deathsdoor.ui_core.extras.interfaces.OnLimitExceededListener
 
 object Extensions {
+
     internal fun TypedArray.stringOrColor(attr: Int,string: () -> Unit, color: () -> Unit){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             when(this.getType(attr)){
@@ -50,15 +51,15 @@ object Extensions {
 
     }
 
-    internal fun Context.showSingleChoicePopUp(): Pair<ItemSingleChoiceBottomSheetBinding, PopupWindow> {
-        val popupViewBinding = ItemSingleChoiceBottomSheetBinding.inflate(LayoutInflater.from(this))
+    internal fun Context.showChoicePopUp(): Pair<ItemChoiceBottomSheetBinding, PopupWindow> {
+        val popupViewBinding = ItemChoiceBottomSheetBinding.inflate(LayoutInflater.from(this))
         val popupWindow = PopupWindow(popupViewBinding.root, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         popupWindow.isFocusable = true
         popupWindow.showAtLocation(popupViewBinding.root, Gravity.CENTER, 0, 0)
         return Pair(popupViewBinding,popupWindow)
     }
 
-    internal fun RadioGroup.setLimit(max:Int,hörter:OnLimitExceededListener){
+    internal fun RadioGroup.setLimit(max:Int, hoerter:OnLimitExceededListener){
         this.setOnCheckedChangeListener { radioGroup, id ->
             if(id == -1) return@setOnCheckedChangeListener
 
@@ -67,7 +68,7 @@ object Extensions {
                 val rb = it as RadioButton
                 if(rb.isChecked) checkedCount++
 
-                if(checkedCount > max) hörter.onLimitExceeded(radioGroup,id)
+                if(checkedCount > max) hoerter.onLimitExceeded(radioGroup,id)
             }
         }
     }
@@ -79,7 +80,7 @@ object Extensions {
             rb.text = it.text
             rb.id = index
 
-            rb.setOnCheckedChangeListener { view, bool ->
+            rb.setOnCheckedChangeListener { _, bool ->
                 rb.isEnabled = bool
                 if(bool) rb.setButtonDrawable(android.R.drawable.btn_radio)
                 else rb.loadImg(it.image)

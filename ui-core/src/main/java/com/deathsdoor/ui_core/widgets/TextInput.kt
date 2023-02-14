@@ -104,9 +104,7 @@ class TextInput(context: Context, attrs: AttributeSet?): FrameLayout(context,att
                         }
                         else onConfirmListener.onDeny(pair.first,pair.second)
                     }
-                    pair.first.btnNo.setOnClickListener {
-                        onConfirmListener.onCancel(pair.first.inputField.text.toString(),pair.second)
-                    }
+                    pair.second.setOnDismissListener {  onConfirmListener.onCancel(pair.first.inputField.text.toString(),pair.second) }
                 }
             }
     }

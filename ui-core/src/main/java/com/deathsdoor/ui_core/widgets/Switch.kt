@@ -1,3 +1,5 @@
+@file:JvmName("deprecated/Switch")
+
 package com.deathsdoor.ui_core.widgets
 
 import android.content.Context
@@ -23,6 +25,8 @@ import com.deathsdoor.ui_core.widgets.Switch.Default.defaultTitle
 import com.deathsdoor.ui_core.widgets.Switch.Default.defaultUseShortDescription
 import com.google.android.material.switchmaterial.SwitchMaterial
 
+
+@Deprecated("extend composable instead of android view")
 class Switch(context: Context, attrs: AttributeSet?): FrameLayout(context,attrs){
     constructor(context: Context) : this(context,null)
 
@@ -34,7 +38,7 @@ class Switch(context: Context, attrs: AttributeSet?): FrameLayout(context,attrs)
 
     var key = typedArray.defaultKey()
 
-    var preference = typedArray.defaultPreference(context)
+    var preference: SharedPreferences = typedArray.defaultPreference(context)
 
     var title = typedArray.defaultTitle()
         set(value){

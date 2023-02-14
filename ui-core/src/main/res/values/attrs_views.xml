@@ -34,6 +34,15 @@
         <attr name="description" />
     </declare-styleable>
 
+    <declare-styleable name="Choice">
+        <attr name="preferenceName"/>
+        <attr name="key"/>
+
+        <attr name="title"/>
+        <attr name="description" />
+        <attr name="limit" format="integer" />
+    </declare-styleable>
+
     <declare-styleable name="Category" />
 
     <declare-styleable name="TextInput">

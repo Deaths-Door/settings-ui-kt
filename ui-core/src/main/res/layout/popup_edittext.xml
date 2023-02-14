@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
     android:orientation="vertical">
     <TextView
         android:id="@+id/title"
@@ -13,8 +12,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16sp"
         android:layout_marginBottom="4dp"
-        android:text="Playlist Title"
-        android:textColor="@color/light_blue_400"
+        android:text="TITLE"
+        android:textColor="@color/orange"
         android:textSize="16sp"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -23,9 +22,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:hintTextColor="@color/design_default_color_secondary"
-        app:boxStrokeColor="@color/light_blue_400">
+        app:boxStrokeColor="@color/orange">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_field"
+            android:id="@+id/inputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
@@ -34,31 +33,15 @@
             android:hint="Enter Playlist Title"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="32dp"
-            android:backgroundTint="@color/light_blue_400"
-            app:cornerRadius="25dp"
-            android:text="Cancel"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnOK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/light_blue_400"
-            app:cornerRadius="25dp"
-            android:text="Save Playlist"/>
-
-    </FrameLayout>
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/orange"
+        app:cornerRadius="25dp"
+        android:text="Save Playlist"/>
 
 </LinearLayout>
