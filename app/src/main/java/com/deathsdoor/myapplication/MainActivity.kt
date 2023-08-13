@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         binding = inflate(layoutInflater)
         setContentView(binding.root)
         binding.compress.setContent {
-
         }
     }
 }

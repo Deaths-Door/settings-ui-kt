@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'maven-publish'
 }
 
 ext {
@@ -67,6 +68,20 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.Deaths-Door'
+            artifactId = 'Setting-UI:ui-core'
+            version = 'alpha-v2'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
 
 

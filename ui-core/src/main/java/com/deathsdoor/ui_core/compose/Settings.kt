@@ -2,6 +2,7 @@ package com.deathsdoor.ui_core.compose
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.deathsdoor.ui_core.compose.Switch as internalSwitch
+import com.deathsdoor.ui_core.compose.TextInput as internalTextInput
 
 abstract class Settings {
     companion object {
@@ -37,6 +38,12 @@ abstract class Settings {
                 showWarnWhenSwitchToggledOffMsg = showWarnWhenSwitchToggledOffMsg,
                 onCheckedChange = onCheckedChange
             )
+        }
+        
+        @Composable
+        //TODO finsihi it
+        fun TextInput(){
+            internalTextInput(preferenceName = "", key = "", title = "", description = "")
         }
     }
 }

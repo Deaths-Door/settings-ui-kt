@@ -11,6 +11,7 @@ import android.text.InputType
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.*
+import androidx.compose.ui.platform.LocalContext
 import com.deathsdoor.ui_core.R
 import com.deathsdoor.ui_core.databinding.ItemTextinputBinding
 import com.deathsdoor.ui_core.databinding.PopupEdittextBinding
@@ -94,7 +95,6 @@ class TextInput(context: Context, attrs: AttributeSet?): FrameLayout(context,att
                 description = typedArray.defaultDescription()
                 inputType = typedArray.defaultInputType()
                 hint = typedArray.defaultHint()
-
                 editBtnView.setOnClickListener {
                     val pair =  context.showPopUpEditTextPopUP(title,hint,inputType)
                     pair.first.btnOK.setOnClickListener {

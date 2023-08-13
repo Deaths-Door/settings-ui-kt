@@ -33,7 +33,5 @@
         android:layout_height="30dp"
         android:layout_gravity="end|center"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:src="@drawable/ic_edit"/>
 </FrameLayout>
